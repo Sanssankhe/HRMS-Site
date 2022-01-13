@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <title>Employee profile</title>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div class="container-fluid">
+    <a class="navbar-brand" href="">SMS PVT.Ltd</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="Employee">Employee Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="task">Tasks For you</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="leave">Take a Leave</a>
+        </li>
+      </ul>
+      <li>
+          <a href="{% url 'logout'%}" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Logout</a>
+        </li>
+    </div>
+</nav>
+
+<div class="container">
+  <form method="post" action="/leave">
+  {% csrf_token %}
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="name" class="">Your name</label>
+                            <input type="text" id="name" name="name" class="form-control"><br>
+
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="email" class="">Your email</label>
+                            <input type="text" id="email" name="email" class="form-control"><br>
+
+                        </div>
+                    </div>
+                    <label for="leave-type">Leave Type</label>
+                    <select name="leavetype" id="leave-type" class="form-control" title="Please select a Leave Type" required>
+                        <option></option>
+                        <option>Sick Leave</option>
+                        <option>Casual Leave</option>
+                        <option>EBL</option>
+                        <option>Unpaid Leave</option>
+                        <option>Hourly Leave</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label class="control-label" for="datepickerstart">Start Date</label>
+                    <input type="text" class="form-control" id="datepickerstart" name="datestart">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label class="control-label" for="datepickerend">End Date</label>
+                    <input type="text" class="form-control" id="datepickerend" name="dateend">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label>Reason</label>
+                    <textarea class="form-control" id="reason" name="reason"></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="col-12">
+                <div class="custom-control custom-checkbox pmd-checkbox">
+                    <input class="custom-control-input" type="checkbox" name="halfday" value="" id="inverse_defaultCheck1"/>
+                    <label class="custom-control-label" for="inverse_defaultCheck1">
+                        Is it a Half Day?
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary pmd-ripple-effect pmd-btn-raised" name="applyleave" value="Apply Leave">Apply Leave</button>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
